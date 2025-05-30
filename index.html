@@ -53,6 +53,14 @@
     .feature-card i{font-size:2rem;color:var(--ct-primary);margin-bottom:1rem}
     .feature-card h3{font-size:1.25rem;margin-bottom:.5rem}
 
+    /* ---------- NEW: AI Platform ---------- */
+    .agents-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:3rem}
+    .agent-card{background:#fff;border-radius:20px;padding:2rem;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.06);transition:transform .15s}
+    .agent-card:hover{transform:translateY(-6px)}
+    .agent-card i{font-size:2rem;color:var(--ct-primary);margin-bottom:1rem}
+    .agent-card h3{font-size:1.25rem;margin-bottom:.5rem}
+    .difference-box{background:var(--ct-primary);color:#fff;padding:1.5rem 2rem;border-radius:20px;margin-top:2.5rem;font-weight:600;text-align:center}
+
     /* WORKFLOW */
     .workflow{display:grid;gap:2rem;margin-top:4rem}
     .workflow-step{display:grid;grid-template-columns:minmax(160px,220px) 1fr;gap:1.75rem;align-items:center;background:#fff;padding:1.75rem 2rem;border-radius:16px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
@@ -62,6 +70,11 @@
     /* TECHNOLOGY */
     .tech-box{background:#fff;border-radius:20px;padding:2.5rem;box-shadow:0 6px 18px rgba(0,0,0,.06);text-align:center}
     .tech-logo{width:220px;height:auto;margin-bottom:1.5rem}
+    /* extra tech cards */
+    .tech-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:2rem}
+    .tech-card{background:#fff;border-radius:20px;padding:2rem;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.06);transition:transform .15s}
+    .tech-card:hover{transform:translateY(-6px)}
+    .tech-card img{width:280px;height:auto;margin-bottom:1rem}
 
     /* PRICING */
     .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:3rem}
@@ -124,24 +137,24 @@
   </style>
 
   <!-- ======== Social meta ======== -->
-<meta property="og:title" content="Coach Total – Turn Your Expertise into Recurring Income 24/7" />
-<meta property="og:description" content="Clone your method in an intelligent assistant that sells, diagnoses, and follows up with clients while you sleep." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://coachtotal.app/" />
-<meta property="og:image" content="assets/image1.jpg" />
-<meta property="og:image:alt" content="Futuristic Coach Total interface with red accents and statistics on screen" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Coach Total – Turn Your Expertise into Recurring Income 24/7" />
-<meta name="twitter:description" content="Multiply your impact 24/7 with a digital twin trained in your method." />
-<meta name="twitter:image" content="assets/image1.jpg" />
+  <meta property="og:title" content="Coach Total – Turn Your Expertise into Recurring Income 24/7" />
+  <meta property="og:description" content="Clone your method in an intelligent assistant that sells, diagnoses, and follows up with clients while you sleep." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://coachtotal.app/" />
+  <meta property="og:image" content="assets/image1.jpg" />
+  <meta property="og:image:alt" content="Futuristic Coach Total interface with red accents and statistics on screen" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Coach Total – Turn Your Expertise into Recurring Income 24/7" />
+  <meta name="twitter:description" content="Multiply your impact 24/7 with a digital twin trained in your method." />
+  <meta name="twitter:image" content="assets/image1.jpg" />
 
   <!-- ======== Icons & favicon ======== -->
-<link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png" />
-<link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png" />
-<link rel="shortcut icon" href="icon/favicon.ico" />
-<link rel="manifest" href="icon/site.webmanifest" />
-<meta name="theme-color" content="#e41f2e" />
+  <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png" />
+  <link rel="shortcut icon" href="icon/favicon.ico" />
+  <link rel="manifest" href="icon/site.webmanifest" />
+  <meta name="theme-color" content="#e41f2e" />
 </head>
 <body>
 
@@ -154,6 +167,7 @@
       </a>
       <ul>
         <li><a href="#producto">Product</a></li>
+        <li><a href="#platform">AI Platform</a></li>
         <li><a href="#beneficios">Benefits</a></li>
         <li><a href="#tecnologia">Technology</a></li>
         <li><a href="#planes">Plans</a></li>
@@ -171,12 +185,43 @@
       <p class="section-lead">Coach Total clones your method into an intelligent assistant that sells, diagnoses, and follows up with your clients while you sleep.</p>
       <div class="cta">
         <a href="#" onclick="return openWhatsApp();" class="btn-primary" style="background:var(--whats)">
-          <i class="ph ph-whatsapp-logo" style="margin-right:.5rem"></i>Chat with a Coach Total
+          <i class="ph ph-whatsapp-logo" style="margin-right:.5rem"></i>Chat with Coach Total
         </a>
       </div>
     </div>
     <div class="hero-img">
       <img src="assets/image1.jpg" alt="Prompt: futuristic coaching interface hologram red accents vibrant lifestyle background"/>
+    </div>
+  </section>
+
+  <!-- NEW: AI PLATFORM -->
+  <section class="container" id="platform">
+    <h2 class="section-title">More than a Chatbot: Your 3-Agent AI Platform</h2>
+    <p class="section-lead">
+      Three expert agents simulate your exact process and personality to sell, diagnose, and coach in record time.
+    </p>
+
+    <div class="agents-grid">
+      <article class="agent-card">
+        <i class="ph ph-handshake"></i>
+        <h3>Sales Agent</h3>
+        <p>Closes a sale in <strong>&lt; 30 min</strong> (about ten messages) with a proven conversational funnel.</p>
+      </article>
+      <article class="agent-card">
+        <i class="ph ph-stethoscope"></i>
+        <h3>Diagnosis Agent</h3>
+        <p>Generates a personalized plan and fine-tunes a unique AI model for each client.</p>
+      </article>
+      <article class="agent-card">
+        <i class="ph ph-star-four"></i>
+        <h3>Personal Coach</h3>
+        <p>Follows up daily, adapts to preferences, and recalculates progress after every message.</p>
+      </article>
+    </div>
+
+    <div class="difference-box" style="margin-top:3rem">
+      Why not just use free ChatGPT? <br>
+      ChatGPT is generic. Coach Total gives you a <strong>sales machine + diagnostic expert + evolving personal AI</strong> trained exclusively on <em>your</em> method and brand.
     </div>
   </section>
 
@@ -330,6 +375,27 @@
         </a>
       </p>
     </div>
+
+    <!-- NEW book + press cards -->
+    <div class="tech-cards">
+      <div class="tech-card">
+        <img src="assets/book.png" alt="Mind Simulation Therapy book cover">
+        <h3>Mind Simulation Therapy</h3>
+        <p>Written by Waken AI founders—discover the science that powers Coach Total.</p>
+        <p>
+          <a href="https://www.amazon.com.mx/Mind-Simulation-Therapy-Psychoanalysis-Relationships/dp/1304332993" target="_blank" style="color:var(--ct-primary);font-weight:600;text-decoration:none;">Buy on Amazon</a> |
+          <a href="https://www.wakenai.com/mst-prerelease" target="_blank" style="color:var(--ct-primary);font-weight:600;text-decoration:none;">Free PDF Download</a>
+        </p>
+      </div>
+      <div class="tech-card">
+        <img src="assets/press.jpg" alt="Press icon">
+        <h3>Press & Media</h3>
+        <p>Logos, founder bios, latest news, and media resources.</p>
+        <p>
+          <a href="https://www.wakenai.com/press" target="_blank" style="color:var(--ct-primary);font-weight:600;text-decoration:none;">Visit the media room &raquo;</a>
+        </p>
+      </div>
+    </div>
   </section>
 
   <!-- SUCCESS CASE – LA BRUJA ROJA -->
@@ -345,7 +411,7 @@
         </h2>
 
         <p style="font-size:1.1rem;max-width:600px;margin-bottom:1rem">
-          We launched a virtual influencer for you to try.  
+          We launched a virtual influencer for you to try.   
           La Bruja Roja offers <strong>two modes</strong>: nutritional coaching or emotional therapy.
         </p>
 
@@ -421,7 +487,7 @@
       </div>
       <div>
         <h4 style="font-weight:600;margin-bottom:.75rem">Legal</h4>
-        <a href="#">Terms &amp; Conditions</a><br>
+        <a href="#">Terms & Conditions</a><br>
         <a href="#">Privacy</a>
       </div>
     </div>
