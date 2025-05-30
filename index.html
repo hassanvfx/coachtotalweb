@@ -90,6 +90,13 @@
       .hero{text-align:center}
       .hero .cta{justify-content:center}
       nav ul{display:none}
+
+      /* Reduce espacio en “Así funciona” */
+      .workflow-step{
+        grid-template-columns:64px 1fr;   /* primera columna solo lo necesario */
+        gap:1rem;                         /* menos separación */
+        padding:1.25rem 1rem;            /* compactar padding */
+      }
     }
 
     /* ------------ CASO DE ÉXITO ------------ */
@@ -328,7 +335,7 @@
   <div class="card">
     <!-- Imagen destacada -->
     <figure class="success-img open-lightbox" data-index="0">
-      <img src="assets/bruja1.jpg"
+      <img src="assets/bruja-hero.jpg"
           alt="Bruja Roja influencer virtual – preview" />
     </figure>
 
@@ -352,9 +359,7 @@
 
       <!-- CTA + enlace a lightbox -->
       <div class="success-cta">
-        <a href="#galeria-bruja" class="btn-ghost open-lightbox">
-          Ver galería de casos reales &raquo;
-        </a>
+      
         <a href="#" onclick="return openWhatsApp();" class="btn-primary"
            style="background:var(--whats)">
           Platica con la Bruja Roja ahora
@@ -364,25 +369,7 @@
   </div>
 </section>
 
-<!-- LIGHTBOX GALERÍA -->
-<!-- ②: estructura del carrusel dentro del lightbox -->
-<aside id="galeria-bruja" class="lightbox" aria-hidden="true">
-  <div class="lightbox-content">
-    <button class="close-lightbox" aria-label="Cerrar">&times;</button>
 
-    <!-- Imagen grande -->
-    <img id="carousel-img" src="assets/image.jpg" alt="Testimonio ampliado" />
-
-    <!-- Controles -->
-    <button class="nav prev" aria-label="Anterior">&lsaquo;</button>
-    <button class="nav next" aria-label="Siguiente">&rsaquo;</button>
-
-    <!-- Miniaturas debajo (opcional, siguen sirviendo para saltar) -->
-    <div class="gallery-grid">
-      <!-- …12 miniaturas como antes… -->
-    </div>
-  </div>
-</aside>
 
 
   <!-- FAQ -->
@@ -420,8 +407,6 @@
     <h2 class="section-title">Hablemos</h2>
     <p class="section-lead">¿Listo para multiplicar tu impacto? Agenda una llamada de 15&nbsp;min y recibe tu proyección de ingresos.</p>
 
-    <!-- Si prefieres mantener el formulario puedes dejarlo; 
-         aquí sólo añadimos un enlace rápido de WhatsApp -->
     <div style="margin-top:2rem">
       <a href="#" onclick="return openWhatsApp();" class="btn-primary" style="background:var(--whats)">
         Escríbenos por WhatsApp
@@ -465,29 +450,11 @@
   </script>
 
   <script>
-/* ==== Lightbox básico ==== */
-document.querySelectorAll('.open-lightbox').forEach(btn=>{
-  btn.addEventListener('click',e=>{
-    e.preventDefault();
-    document.querySelector(btn.getAttribute('href')).classList.add('active');
-  });
-});
-document.querySelectorAll('.close-lightbox').forEach(btn=>{
-  btn.addEventListener('click',()=> btn.closest('.lightbox').classList.remove('active'));
-});
-document.querySelectorAll('.lightbox').forEach(lb=>{
-  lb.addEventListener('click',e=>{
-    if(e.target===lb) lb.classList.remove('active');
-  });
-  document.addEventListener('keydown',e=>{
-    if(e.key==='Escape') lb.classList.remove('active');
-  });
-});
 
-/* ==== WhatsApp CTA (una sola fuente) ==== */
+/* ==== WhatsApp CTA ==== */
 function openWhatsApp(){
   window.open('https://wa.me/5215528646454?text=%23coachtotal','_blank');
-  return false; // evita navegación normal del enlace
+  return false;
 }
   </script>
 
