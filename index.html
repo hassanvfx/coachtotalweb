@@ -126,44 +126,62 @@
 .success-content .btn-ghost:hover{opacity:.6}
 .success-cta{display:flex;flex-wrap:wrap;align-items:center;gap:1rem}
 
-/* ------------ LIGHTBOX ------------ */
-.lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.85);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:1000;
-  padding:2rem;
+/* === CAPTURAS – Carrusel horizontal ============================== */
+.phone-capture { margin-top: 4rem; }
+
+.capture-wrapper {
+  position: relative;
 }
-.lightbox.active{display:flex}
-.lightbox-content{
-  max-width:980px;
-  width:100%;
-  background:#fff;
-  border-radius:20px;
-  padding:2rem;
-  position:relative;
+
+.capture-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  scroll-behavior: smooth;           /* Flechas + drag suave */
 }
-.close-lightbox{
-  position:absolute;
-  top:1rem;right:1rem;
-  background:none;border:none;
-  font-size:2rem;line-height:1;cursor:pointer;
-  color:var(--ct-dark);
+
+.capture-track::-webkit-scrollbar { height: 8px; }      /* scrollbar fino */
+.capture-track::-webkit-scrollbar-thumb {
+  background: var(--ct-primary); border-radius: 4px;
 }
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
-  gap:1rem;
+
+.capture-item {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
 }
-.gallery-grid img{
-  width:100%;border-radius:14px;object-fit:cover;
-  box-shadow:0 4px 12px rgba(0,0,0,.08);
-  cursor:pointer;transition:transform .15s;
+
+.capture-item img {
+  width: 220px;               /* desktop */
+  max-width: 65vw;            /* móvil */
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.10);
 }
-.gallery-grid img:hover{transform:scale(1.03)}
+
+/* Flechas */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,.9);
+  border: none;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: flex; align-items:center; justify-content:center;
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
+  cursor: pointer;
+  transition: opacity .15s;
+}
+
+.carousel-btn:hover { opacity: .8; }
+.carousel-prev { left: -22px; }      /* la mitad sobresale */
+.carousel-next { right: -22px; }
+
+@media(max-width:600px){
+  .carousel-btn{display:none;}       /* en móvil usamos swipe */
+}
 
   </style>
 </head>
@@ -234,6 +252,36 @@
       </article>
     </div>
   </section>
+
+
+
+<!-- CAPTURAS DE TELÉFONO – CARRUSEL -->
+<section class="container phone-capture" id="capturas">
+  <h2 class="section-title">Cambiando Vidas 24/7</h2>
+
+  <div class="capture-wrapper">
+    <!-- Flechas -->
+    <button class="carousel-btn carousel-prev" onclick="scrollCaptures(-1)">
+      <i class="ph ph-caret-left"></i>
+    </button>
+    <button class="carousel-btn carousel-next" onclick="scrollCaptures(1)">
+      <i class="ph ph-caret-right"></i>
+    </button>
+
+    <!-- Pista de capturas -->
+    <div class="capture-track" id="captureTrack">
+      <!-- 10 imágenes -->
+      <!-- Cambia a .png si tu archivo es png -->
+      <figure class="capture-item"><img src="assets/bruja1.jpg"  alt="Captura 1"></figure>
+      <figure class="capture-item"><img src="assets/bruja2.jpg"  alt="Captura 2"></figure>
+      <figure class="capture-item"><img src="assets/bruja3.jpg"  alt="Captura 3"></figure>
+      <figure class="capture-item"><img src="assets/bruja4.jpg"  alt="Captura 4"></figure>
+      <figure class="capture-item"><img src="assets/bruja5.jpg"  alt="Captura 5"></figure>
+      <figure class="capture-item"><img src="assets/bruja6.jpg"  alt="Captura 6"></figure>
+      <figure class="capture-item"><img src="assets/bruja7.jpg"  alt="Captura 7"></figure>
+    </div>
+  </div>
+</section>
 
   <!-- WORKFLOW -->
   <section class="container" id="producto">
@@ -372,6 +420,8 @@
 
 
 
+
+
   <!-- FAQ -->
   <section class="container faq" id="faq">
     <h2 class="section-title">Preguntas frecuentes</h2>
@@ -450,6 +500,13 @@
   </script>
 
   <script>
+
+    function scrollCaptures(dir){
+  const track = document.getElementById('captureTrack');
+  // Ancho de un ítem + gap (usa el primero como referencia)
+  const itemWidth = track.querySelector('.capture-item').offsetWidth + 16;
+  track.scrollBy({ left: dir * itemWidth, behavior: 'smooth' });
+}
 
 /* ==== WhatsApp CTA ==== */
 function openWhatsApp(){
