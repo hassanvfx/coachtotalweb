@@ -173,7 +173,7 @@
         <li><a href="#planes">Planes</a></li>
         <li><a href="#testimonios">Testimonios</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#" onclick="return openWhatsApp();" class="wa-link">Contacto</a></li>
       </ul>
     </nav>
   </header>
@@ -184,13 +184,13 @@
       <h1>Convierte tu <span style="color:var(--ct-primary)">experiencia</span> en ingresos recurrentes 24/7</h1>
       <p class="section-lead">Coach Total clona tu metodología en un asistente inteligente que vende, diagnostica y da seguimiento a tus clientes mientras duermes.</p>
       <div class="cta">
-        <a href="https://wa.me/0000000000" class="btn-primary" style="background:var(--whats)">
+        <a href="#" onclick="return openWhatsApp();" class="btn-primary" style="background:var(--whats)">
           <i class="ph ph-whatsapp-logo" style="margin-right:.5rem"></i>Chatea con un Coach Total
         </a>
       </div>
     </div>
     <div class="hero-img">
-      <img src="assets/image1.png" alt="Prompt: futuristic coaching interface hologram red accents vibrant lifestyle background"/>
+      <img src="assets/image1.jpg" alt="Prompt: futuristic coaching interface hologram red accents vibrant lifestyle background"/>
     </div>
   </section>
 
@@ -328,7 +328,7 @@
   <div class="card">
     <!-- Imagen destacada -->
     <figure class="success-img open-lightbox" data-index="0">
-      <img src="assets/bruja-hero.jpg"
+      <img src="assets/bruja1.jpg"
           alt="Bruja Roja influencer virtual – preview" />
     </figure>
 
@@ -355,7 +355,7 @@
         <a href="#galeria-bruja" class="btn-ghost open-lightbox">
           Ver galería de casos reales &raquo;
         </a>
-        <a href="https://wa.me/0000000000" class="btn-primary"
+        <a href="#" onclick="return openWhatsApp();" class="btn-primary"
            style="background:var(--whats)">
           Platica con la Bruja Roja ahora
         </a>
@@ -419,12 +419,14 @@
   <section class="container" id="contacto">
     <h2 class="section-title">Hablemos</h2>
     <p class="section-lead">¿Listo para multiplicar tu impacto? Agenda una llamada de 15&nbsp;min y recibe tu proyección de ingresos.</p>
-    <form action="https://formspree.io/f/{tu-endpoint}" method="POST" style="margin-top:2rem;display:grid;gap:1rem;max-width:500px">
-      <input type="text" name="name" placeholder="Nombre" required style="padding:.9rem;border-radius:12px;border:1px solid #ccc">
-      <input type="email" name="email" placeholder="Email" required style="padding:.9rem;border-radius:12px;border:1px solid #ccc">
-      <textarea name="message" placeholder="Cuéntanos sobre tu audiencia…" rows="4" style="padding:.9rem;border-radius:12px;border:1px solid #ccc"></textarea>
-      <button class="btn-primary" type="submit">Agendar llamada</button>
-    </form>
+
+    <!-- Si prefieres mantener el formulario puedes dejarlo; 
+         aquí sólo añadimos un enlace rápido de WhatsApp -->
+    <div style="margin-top:2rem">
+      <a href="#" onclick="return openWhatsApp();" class="btn-primary" style="background:var(--whats)">
+        Escríbenos por WhatsApp
+      </a>
+    </div>
   </section>
 
   <!-- FOOTER -->
@@ -436,14 +438,14 @@
         <div class="social">
           <a href="#"><i class="ph ph-instagram-logo"></i></a>
           <a href="#"><i class="ph ph-tiktok-logo"></i></a>
-          <a href="#"><i class="ph ph-whatsapp-logo"></i></a>
+          <a href="#" onclick="return openWhatsApp();"><i class="ph ph-whatsapp-logo"></i></a>
         </div>
       </div>
       <div>
         <h4 style="font-weight:600;margin-bottom:.75rem">Recursos</h4>
         <a href="#faq">FAQ</a><br/>
         <a href="#planes">Planes</a><br/>
-        <a href="#contacto">Contacto</a>
+        <a href="#" onclick="return openWhatsApp();" class="wa-link">Contacto</a>
       </div>
       <div>
         <h4 style="font-weight:600;margin-bottom:.75rem">Legal</h4>
@@ -473,7 +475,6 @@ document.querySelectorAll('.open-lightbox').forEach(btn=>{
 document.querySelectorAll('.close-lightbox').forEach(btn=>{
   btn.addEventListener('click',()=> btn.closest('.lightbox').classList.remove('active'));
 });
-/* Cierra con ESC / click fuera */
 document.querySelectorAll('.lightbox').forEach(lb=>{
   lb.addEventListener('click',e=>{
     if(e.target===lb) lb.classList.remove('active');
@@ -482,7 +483,13 @@ document.querySelectorAll('.lightbox').forEach(lb=>{
     if(e.key==='Escape') lb.classList.remove('active');
   });
 });
-</script>
+
+/* ==== WhatsApp CTA (una sola fuente) ==== */
+function openWhatsApp(){
+  window.open('https://wa.me/5215528646454?text=%23coachtotal','_blank');
+  return false; // evita navegación normal del enlace
+}
+  </script>
 
 </body>
 </html>
