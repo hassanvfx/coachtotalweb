@@ -51,6 +51,9 @@
     .workflow-step h4{font-size:1.125rem;margin-bottom:.25rem}
     .workflow-step .num{width:64px;height:64px;border-radius:50%;background:var(--ct-primary);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;font-weight:800}
 
+    /* TECHNOLOGY */
+    .tech-box{background:#fff;border-radius:20px;padding:2.5rem;box-shadow:0 6px 18px rgba(0,0,0,.06);text-align:center}
+
     /* PRICING */
     .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:3rem}
     .price-card{background:#fff;border-radius:24px;padding:2.5rem 2rem;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.07);display:flex;flex-direction:column;gap:1.25rem}
@@ -88,6 +91,73 @@
       .hero .cta{justify-content:center}
       nav ul{display:none}
     }
+
+    /* ------------ CASO DE ÉXITO ------------ */
+.success-case .card{
+  background:#fff;
+  border-radius:24px;
+  box-shadow:0 8px 28px rgba(0,0,0,.08);
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:2.5rem;
+  align-items:center;
+  padding:3rem;
+}
+.success-img img{
+  width:100%;
+  border-radius:20px;
+  object-fit:cover;
+  box-shadow:0 4px 18px rgba(0,0,0,.05);
+}
+.success-content .btn-ghost{
+  color:var(--ct-primary);
+  font-weight:600;
+  text-decoration:none;
+  margin-right:1.25rem;
+  transition:opacity .2s;
+}
+.success-content .btn-ghost:hover{opacity:.6}
+.success-cta{display:flex;flex-wrap:wrap;align-items:center;gap:1rem}
+
+/* ------------ LIGHTBOX ------------ */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+  padding:2rem;
+}
+.lightbox.active{display:flex}
+.lightbox-content{
+  max-width:980px;
+  width:100%;
+  background:#fff;
+  border-radius:20px;
+  padding:2rem;
+  position:relative;
+}
+.close-lightbox{
+  position:absolute;
+  top:1rem;right:1rem;
+  background:none;border:none;
+  font-size:2rem;line-height:1;cursor:pointer;
+  color:var(--ct-dark);
+}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:1rem;
+}
+.gallery-grid img{
+  width:100%;border-radius:14px;object-fit:cover;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+  cursor:pointer;transition:transform .15s;
+}
+.gallery-grid img:hover{transform:scale(1.03)}
+
   </style>
 </head>
 <body>
@@ -99,6 +169,7 @@
       <ul>
         <li><a href="#producto">Producto</a></li>
         <li><a href="#beneficios">Beneficios</a></li>
+        <li><a href="#tecnologia">Tecnología</a></li>
         <li><a href="#planes">Planes</a></li>
         <li><a href="#testimonios">Testimonios</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -199,6 +270,7 @@
     </div>
   </section>
 
+
   <!-- PLANES -->
   <section class="container" id="planes">
     <h2 class="section-title">Planes a tu medida</h2>
@@ -236,27 +308,82 @@
     </div>
   </section>
 
-  <!-- TESTIMONIOS -->
-  <section class="container testimonials" id="testimonios">
-    <h2 class="section-title">Voces de éxito</h2>
-    <div class="testimonial-track">
-      <div class="testimonial-card">
-        <img src="" alt="Prompt: happy nutrition influencer female selfie mobile phone vibrant background" style="width:100%;border-radius:14px;margin-bottom:1rem" />
-        <p>“En dos semanas tripliqué mis clientes de coaching sin enviar un solo DM manual. ¡Coach Total es mi socio 24/7!”</p>
-        <div class="testimonial-author">Paola · @NutriConPao</div>
-      </div>
-      <div class="testimonial-card">
-        <img src="" alt="Prompt: personal finance guru male podcast studio confident red accents" style="width:100%;border-radius:14px;margin-bottom:1rem" />
-        <p>“Moneticé a mi comunidad con un plan mensual de MXN 499. El bot cerró el 8 % de mi audiencia en la primera campaña.”</p>
-        <div class="testimonial-author">Luis · FinHack</div>
-      </div>
-      <div class="testimonial-card">
-        <img src="" alt="Prompt: mystical red-haired witch tarot setup magical aesthetic blue background" style="width:100%;border-radius:14px;margin-bottom:1rem" />
-        <p>“La Bruja Roja duplicó su facturación y puedo enfocarme en crear contenido. Mi gemela digital lee el tarot por mí.”</p>
-        <div class="testimonial-author">Scarlett · La Bruja Roja</div>
-      </div>
+
+   <!-- TECNOLOGÍA -->
+  <section class="container" id="tecnologia">
+    <h2 class="section-title">Tecnología con evidencia clínica</h2>
+    <div class="tech-box">
+      <p class="section-lead" style="margin:0 auto;">
+        Coach Total está respaldado por un estudio con <strong>más de 1&nbsp;000 pacientes</strong> realizado por <strong>Waken&nbsp;AI Labs</strong>.
+        <br/><br/>
+        <a href="https://www.wakenai.com/mst" target="_blank" style="color:var(--ct-primary);font-weight:600;text-decoration:none;">
+          Leer estudio completo &raquo;
+        </a>
+      </p>
     </div>
   </section>
+
+  <!-- CASO DE ÉXITO – LA BRUJA ROJA -->
+<section class="container success-case" id="caso-bruja-roja">
+  <div class="card">
+    <!-- Imagen destacada -->
+    <figure class="success-img open-lightbox" data-index="0">
+      <img src="assets/bruja-hero.jpg"
+          alt="Bruja Roja influencer virtual – preview" />
+    </figure>
+
+    <!-- Contenido -->
+    <div class="success-content">
+      <h2 class="section-title" style="margin-bottom:.25rem">
+        Caso de éxito: <span style="color:var(--ct-primary)">La Bruja Roja</span>
+      </h2>
+
+      <p style="font-size:1.1rem;max-width:600px;margin-bottom:1rem">
+        Lanzamos un influencer virtual para que lo pruebes.  
+        La Bruja Roja ofrece <strong>dos modalidades</strong>: coaching
+        nutricional o terapia emocional.
+      </p>
+
+      <p class="section-lead" style="margin-bottom:1.5rem">
+        Se enfocó en mujeres mexicanas 45 +, sin experiencia tecnológica,
+        ¡y convirtió al <strong>3 %</strong> en clientes de pago en menos de
+        1 hora!
+      </p>
+
+      <!-- CTA + enlace a lightbox -->
+      <div class="success-cta">
+        <a href="#galeria-bruja" class="btn-ghost open-lightbox">
+          Ver galería de casos reales &raquo;
+        </a>
+        <a href="https://wa.me/0000000000" class="btn-primary"
+           style="background:var(--whats)">
+          Platica con la Bruja Roja ahora
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX GALERÍA -->
+<!-- ②: estructura del carrusel dentro del lightbox -->
+<aside id="galeria-bruja" class="lightbox" aria-hidden="true">
+  <div class="lightbox-content">
+    <button class="close-lightbox" aria-label="Cerrar">&times;</button>
+
+    <!-- Imagen grande -->
+    <img id="carousel-img" src="assets/image.jpg" alt="Testimonio ampliado" />
+
+    <!-- Controles -->
+    <button class="nav prev" aria-label="Anterior">&lsaquo;</button>
+    <button class="nav next" aria-label="Siguiente">&rsaquo;</button>
+
+    <!-- Miniaturas debajo (opcional, siguen sirviendo para saltar) -->
+    <div class="gallery-grid">
+      <!-- …12 miniaturas como antes… -->
+    </div>
+  </div>
+</aside>
+
 
   <!-- FAQ -->
   <section class="container faq" id="faq">
@@ -334,5 +461,28 @@
       })
     })
   </script>
+
+  <script>
+/* ==== Lightbox básico ==== */
+document.querySelectorAll('.open-lightbox').forEach(btn=>{
+  btn.addEventListener('click',e=>{
+    e.preventDefault();
+    document.querySelector(btn.getAttribute('href')).classList.add('active');
+  });
+});
+document.querySelectorAll('.close-lightbox').forEach(btn=>{
+  btn.addEventListener('click',()=> btn.closest('.lightbox').classList.remove('active'));
+});
+/* Cierra con ESC / click fuera */
+document.querySelectorAll('.lightbox').forEach(lb=>{
+  lb.addEventListener('click',e=>{
+    if(e.target===lb) lb.classList.remove('active');
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape') lb.classList.remove('active');
+  });
+});
+</script>
+
 </body>
 </html>
